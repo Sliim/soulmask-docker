@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  soulmask:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: soulmask:0.1.0
+    container_name: soulmask
+    hostname: soulmask
+    ports:
+      - "8777:8777/udp"
+    volumes:
+      - "./soulmask:/home/steam/soulmask-server"
+    environment:
+      - FORCE_SERVER_UPDATE=0
+      - SERVERNAME=soulmask-docker
+      - MAXPLAYERS=20
+      - BACKUP=900
+      - SAVING=600
+      - PORT=8777
+      - QUERYPORT=27015
+      - INITBACKUP=0
+      - BACKUPINTERVAL=600
+      - PSW=CHANGEME
+      - ADMINPSW=CHANGEME

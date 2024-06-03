@@ -1,0 +1,43 @@
+* References
+
+- https://soulmask.fandom.com/wiki/Private_Server
+
+* Build docker image
+
+#+BEGIN_SRC bash
+docker build -t soulmask:0.1.0 .
+#+END_SRC
+
+* Run container
+
+#+BEGIN_SRC bash
+docker run soulmask:0.1.0
+#+END_SRC
+
+* docker compose
+** Setup / configuration
+
+Edit and customize ~docker-compose.yml~ file (server name, passwords etc..).
+
+** Start server
+#+BEGIN_SRC bash
+docker compose up -d
+docker compose logs -f
+#+END_SRC
+
+** Stop server
+#+BEGIN_SRC bash
+docker compose exec soulmask
+telnet 127.0.0.1 18888
+Trying 127.0.0.1...
+Connected to 127.0.0.1.
+Escape character is '^]'.
+
+Hello:
+Type help for command list.
+quit 180
+
+World is closing...
+#+END_SRC
+
+Wait for the container to stop!
